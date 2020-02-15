@@ -1,4 +1,4 @@
-## miyoubi
+# miyoubi
 这是一个一键完成米游社的米游币的python程序
 
 ## 功能
@@ -22,7 +22,7 @@
 
 javascript:(function(){var a=function getCookie(name){var strCookie=document.cookie;var arrCookie=strCookie.split("; ");for(var i=0;i<arrCookie.length;i++){var arr=arrCookie[i].split("=");if(arr[0]==name)return arr[1]}return""};var b={};b.a=a("account_id");b.b=a("login_ticket");alert(JSON.stringify(b))})()  
 
-4，复制弹窗中b冒号后的内容 注意不含引号  
+4，复制弹窗中 b冒号后的内容 注意**不含**引号  
 
 5，输入到程序里面 完成！  
 
