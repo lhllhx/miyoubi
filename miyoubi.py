@@ -108,7 +108,7 @@ def input_window(): #输入界面
     button.pack()
     window.mainloop()
  
- 
+
 try:
     f = open('cookies.dat', 'r')
     f.close()
