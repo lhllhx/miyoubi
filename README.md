@@ -31,3 +31,5 @@ javascript:(function(){var a=function getCookie(name){var strCookie=document.coo
 ## 其他
 
 软件使用python3.7编写并使用PyInstaller打包
+
+第三方模块：  requests
