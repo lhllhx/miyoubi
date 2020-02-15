@@ -24,6 +24,8 @@ javascript:(function(){var a=function getCookie(name){var strCookie=document.coo
 
 4，复制弹窗中 b冒号后的内容 注意**不含**引号  
 
+![b](https://github.com/lhllhx/miyoubi/blob/master/b.png)
+
 5，输入到程序里面 完成！  
 
 注意：当你需要更改账号信息或初始化程序时，请删除同目录下的cookies.dat文件
