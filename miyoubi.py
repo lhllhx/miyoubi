@@ -52,7 +52,7 @@ def send_data(cookies_users): #任务开始
         print(res_read.text)
         res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users)
         print(res_vote.text)
-        post_id = str(int(post_id) + 1)
+        post_id = str(int(post_id) - 1)
         count = count - 1
     #分享功能
     URL_share='https://api-takumi.mihoyo.com/apihub/api/getShareConf?entity_id='+ post_id
@@ -74,7 +74,7 @@ def cookise_data(cookies_users):
         send_data(cookies_users)
     else:
         window.withdraw()
-        tk.messagebox.showinfo("登录信息已失效", '登录信息已失效，请重新登录')
+        tk.messagebox.showinfo("一键完成米游社米游币任务", '登录信息已失效，请重新登录')
         input_window()
  
  
@@ -100,7 +100,7 @@ def input_window(): #输入界面
     x = (sw - ww) / 2
     y = (sh - wh) / 2
     window.geometry('%dx%d+%d+%d' % (ww, wh, x, y))
-    window.title('请输入login_ticket')
+    window.title('一键完成米游社米游币任务')
     (tk.Label(window, text='请输入login_ticket', font=('Arial', 12), width=30, height=2)).pack()
     entry = tk.Entry(window, show=None, font=('Arial', 14))
     entry.pack()
