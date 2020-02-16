@@ -6,6 +6,7 @@ def getcookies(): #获取用户登录信息
     res = requests.get(URL1)
     res_text = res.text
     json1 = json.loads(res_text)
+    print(json1)
     dataList_in = json1.get('data')
     if dataList_in['msg'] == "成功":       
         print('%s' % dataList_in['cookie_info']['cookie_token'])
@@ -19,20 +20,19 @@ def getcookies(): #获取用户登录信息
         URL3='https://api-takumi.mihoyo.com/auth/api/getMultiTokenByLoginTicket?login_ticket='+entry.get()+'&token_types=3&uid='+str(dataList_in['cookie_info']['account_id'])
         res3 = requests.get(URL3)
         res3_text = res3.text
-        json2 = json.loads(res3_text)
+        json2 = json.loads(res3_text)  
         print(json2)
-        cookies_f = open('cookies.dat', 'w+')
+        cookies_f = open('cookies.dat', 'w+')  #写入数据文件
         cookies_f.write('%s\n' % res2.cookies['ltuid'])
         cookies_f.write('%s\n' % res2.cookies['ltoken'])
         cookies_f.write('%s' % json2['data']['list'][0]['token'])
         cookies_f.close()
         read_data()
     else:   
-        print('%s' % dataList_in['msg'])
+        print('%s' % dataList_in['msg'])  
         tk.messagebox.showinfo("一键完成米游社米游币任务", '登录信息已失效，请重新登录')
         input_window()
     
- 
  
 def send_data(cookies_users): #任务开始
     #获取帖子信息
@@ -99,10 +99,10 @@ def read_data(): #读取用户cookies
         cookies_users['stuid'] = cookies_users['ltuid']
         print(cookies_users)
         cookise_data(cookies_users)
-    except IOError:
+    except :
         window = tk.Tk()
         window.withdraw()
-        tk.messagebox.showinfo("一键完成米游社米游币任务", '登录信息已失效，请重新登录')
+        tk.messagebox.showinfo("一键完成米游社米游币任务", '读取数据文件失败，请重新登录')
         input_window()
 
  
