@@ -99,7 +99,7 @@ def read_data(): #读取用户cookies
         cookies_users['stuid'] = cookies_users['ltuid']
         print(cookies_users)
         cookise_data(cookies_users)
-    except :
+    except IOError:
         window = tk.Tk()
         window.withdraw()
         tk.messagebox.showinfo("一键完成米游社米游币任务", '读取数据文件失败，请重新登录')
