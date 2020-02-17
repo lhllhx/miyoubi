@@ -95,26 +95,6 @@
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\socket.py',
    'PYMODULE'),
-  ('_py_abc',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\_py_abc.py',
-   'PYMODULE'),
-  ('typing',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\typing.py',
-   'PYMODULE'),
-  ('tokenize',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\tokenize.py',
-   'PYMODULE'),
-  ('token',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\token.py',
-   'PYMODULE'),
-  ('quopri',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\quopri.py',
-   'PYMODULE'),
   ('bz2',
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\bz2.py',
@@ -123,9 +103,25 @@
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\_compression.py',
    'PYMODULE'),
+  ('quopri',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\quopri.py',
+   'PYMODULE'),
   ('stringprep',
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\stringprep.py',
+   'PYMODULE'),
+  ('_py_abc',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\_py_abc.py',
+   'PYMODULE'),
+  ('tokenize',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\tokenize.py',
+   'PYMODULE'),
+  ('token',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\token.py',
    'PYMODULE'),
   ('tracemalloc',
    'c:\\program files (x86)\\microsoft visual '
@@ -534,6 +530,10 @@
   ('fnmatch',
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\fnmatch.py',
+   'PYMODULE'),
+  ('typing',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\typing.py',
    'PYMODULE'),
   ('json',
    'c:\\program files (x86)\\microsoft visual '
