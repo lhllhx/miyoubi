@@ -45,12 +45,18 @@ def send_data(cookies_users): #任务开始
     sign_data = {'gids': '1'}
     URL_signin = 'https://api-takumi.mihoyo.com/apihub/api/signIn'
     res_signin = requests.post(URL_signin, json=sign_data, cookies=cookies_users)
+    sign_data = {'gids': '2'}
+    URL_signin = 'https://api-takumi.mihoyo.com/apihub/api/signIn'
+    res_signin = requests.post(URL_signin, json=sign_data, cookies=cookies_users)
+    sign_data = {'gids': '3'}
+    URL_signin = 'https://api-takumi.mihoyo.com/apihub/api/signIn'
+    res_signin = requests.post(URL_signin, json=sign_data, cookies=cookies_users)
     print(res_signin.text)
     #点赞和阅贴
     URL_upvote = 'https://api-takumi.mihoyo.com/apihub/api/upvotePost'
     URL_read = 'https://api-takumi.mihoyo.com/post/wapi/getPostFull?gids=1&post_id='
     upvote_data = {'gids':'1',  'is_cancel':False,  'post_id':'1'}
-    count = 5
+    count = 4
     while count > 0:
         upvote_data['post_id'] = post_id
         URL_read_id = URL_read + post_id
@@ -99,7 +105,7 @@ def read_data(): #读取用户cookies
         cookies_users['stuid'] = cookies_users['ltuid']
         print(cookies_users)
         cookise_data(cookies_users)
-    except :
+    except IOError:
         window = tk.Tk()
         window.withdraw()
         tk.messagebox.showinfo("一键完成米游社米游币任务", '读取数据文件失败，请重新登录')
