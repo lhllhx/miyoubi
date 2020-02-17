@@ -16,7 +16,8 @@
 
 ## 食用方法
 
-1，下载程序 https://share.weiyun.com/5xYDpa2 密码 weegy0 
+1，下载程序 https://share.weiyun.com/5xYDpa2 密码 weegy0 或到release（release为最新版）里下载 
+
 并打开米游社官网https://bbs.mihoyo.com/bh3/
 
 2，重新登录米游社（已登录的要退出重新登录）  
@@ -39,4 +40,6 @@ javascript:(function(){var a=function getCookie(name){var strCookie=document.coo
 
 软件使用python3.7编写并使用PyInstaller打包
 
-第三方模块：  requests
+第三方模块：  requests  
+
+源文件为miyoubi.py 其他为编译副产物
