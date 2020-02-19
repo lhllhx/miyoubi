@@ -97,6 +97,7 @@ def read_data(): #读取用户cookies
         cookies_users['ltoken'] = ltoken.strip()
         cookies_users['stoken'] = stoken.strip()
         cookies_users['stuid'] = cookies_users['ltuid']
+        cookies_f.close
         print(cookies_users)
         cookise_data(cookies_users)
     except IOError:
