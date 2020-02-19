@@ -61,7 +61,7 @@ def send_data(cookies_users): #任务开始
     book_URL='https://api-community.mihoyo.com/community/forum/post/assessPost'
     book_data={'gids':'1',"post_id":"1","access":"book"}
     book_cancel_data={'gids':'1',"post_id":"1","access":"book","cancel":"1"}
-    count = 0
+    count = 11
     while count > 0:
         post_id = res_text['data']['list'][count]['post_id']
         upvote_data['post_id'] = post_id
@@ -89,7 +89,7 @@ def send_data(cookies_users): #任务开始
     book_URL='https://api-community.mihoyo.com/community/forum/post/assessPost'
     book_data={'gids':'1',"post_id":"1","access":"book"}
     book_cancel_data={'gids':'1',"post_id":"1","access":"book","cancel":"1"}
-    count = 0
+    count = 11
     while count > 0:
         post_id = res_text['data']['list'][count]['post_id']
         upvote_data['post_id'] = post_id
@@ -137,7 +137,6 @@ def send_data(cookies_users): #任务开始
     URL_share='https://api-takumi.mihoyo.com/apihub/api/getShareConf?entity_id='+ post_id + '&entity_type=1'
     res_share= requests.get(URL_share, cookies=cookies_users)
     print(res_share.text)
-    global window
     window = tk.Tk()
     window.withdraw()
     tk.messagebox.showinfo("恭喜", "任务已完成！")
@@ -170,6 +169,7 @@ def read_data(): #读取用户cookies
         cookies_users['ltoken'] = ltoken.strip()
         cookies_users['stoken'] = stoken.strip()
         cookies_users['stuid'] = cookies_users['ltuid']
+        cookies_f.close
         print(cookies_users)
         cookise_data(cookies_users)
     except IOError:
