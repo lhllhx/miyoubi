@@ -35,13 +35,7 @@ def getcookies(): #获取用户登录信息
     
  
 def send_data(cookies_users): #任务开始
-    #获取帖子信息
-    URL = 'https://api-community.mihoyo.com/community/forum/home/forumPostList?forum_id=1&is_good=false&is_hot=false&page_size=20&sort=create'
-    res = requests.get(URL, cookies=cookies_users)
-    res_text = json.loads(res.text)
-    post_id = res_text['data']['list'][0]['post_id']
-    print(post_id)
-    #签到功能
+    #全板块签到功能
     sign_data = {'gids': '1'}
     URL_signin = 'https://api-takumi.mihoyo.com/apihub/api/signIn'
     res_signin = requests.post(URL_signin, json=sign_data, cookies=cookies_users)
@@ -52,20 +46,93 @@ def send_data(cookies_users): #任务开始
     URL_signin = 'https://api-takumi.mihoyo.com/apihub/api/signIn'
     res_signin = requests.post(URL_signin, json=sign_data, cookies=cookies_users)
     print(res_signin.text)
-    #点赞和阅贴
+    
+    #点赞和阅贴和收藏功能
+    
+    #崩3板块
+    #获取帖子信息
+    URL = 'https://api-community.mihoyo.com/community/forum/home/forumPostList?forum_id=1&is_good=false&is_hot=false&page_size=20&sort=create' 
+    #forum_id 1为崩3 26为原神 30为崩2
+    res = requests.get(URL, cookies=cookies_users)
+    res_text = json.loads(res.text)
     URL_upvote = 'https://api-takumi.mihoyo.com/apihub/api/upvotePost'
     URL_read = 'https://api-takumi.mihoyo.com/post/wapi/getPostFull?gids=1&post_id='
     upvote_data = {'gids':'1',  'is_cancel':False,  'post_id':'1'}
-    count = 4
+    book_URL='https://api-community.mihoyo.com/community/forum/post/assessPost'
+    book_data={'gids':'1',"post_id":"1","access":"book"}
+    book_cancel_data={'gids':'1',"post_id":"1","access":"book","cancel":"1"}
+    count = 0
     while count > 0:
+        post_id = res_text['data']['list'][count]['post_id']
         upvote_data['post_id'] = post_id
         URL_read_id = URL_read + post_id
-        res_read = requests.get(URL_read_id, cookies=cookies_users)
+        book_data['post_id']=res_text['data']['list'][count]['post_id']
+        book_cancel_data['post_id']=res_text['data']['list'][count]['post_id']
+        res_book = requests.get(URL_read_id, cookies=cookies_users)
+        print(res_book.text)
+        res_unbook = requests.get(book_URL, cookies=cookies_users,params=book_data)
+        print(res_unbook.text)
+        res_read = requests.get(book_URL, cookies=cookies_users,params=book_cancel_data)
         print(res_read.text)
         res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users)
         print(res_vote.text)
-        post_id = str(int(post_id) - 1)
         count = count - 1
+   
+    #原神板块   
+    URL = 'https://api-community.mihoyo.com/community/forum/home/forumPostList?forum_id=26&is_good=false&is_hot=false&page_size=20&sort=create' 
+    #forum_id 1为崩3 26为原神 30为崩2
+    res = requests.get(URL, cookies=cookies_users)
+    res_text = json.loads(res.text)
+    URL_upvote = 'https://api-takumi.mihoyo.com/apihub/api/upvotePost'
+    URL_read = 'https://api-takumi.mihoyo.com/post/wapi/getPostFull?gids=1&post_id='
+    upvote_data = {'gids':'1',  'is_cancel':False,  'post_id':'1'}
+    book_URL='https://api-community.mihoyo.com/community/forum/post/assessPost'
+    book_data={'gids':'1',"post_id":"1","access":"book"}
+    book_cancel_data={'gids':'1',"post_id":"1","access":"book","cancel":"1"}
+    count = 0
+    while count > 0:
+        post_id = res_text['data']['list'][count]['post_id']
+        upvote_data['post_id'] = post_id
+        URL_read_id = URL_read + post_id
+        book_data['post_id']=res_text['data']['list'][count]['post_id']
+        book_cancel_data['post_id']=res_text['data']['list'][count]['post_id']
+        res_book = requests.get(URL_read_id, cookies=cookies_users)
+        print(res_book.text)
+        res_unbook = requests.get(book_URL, cookies=cookies_users,params=book_data)
+        print(res_unbook.text)
+        res_read = requests.get(book_URL, cookies=cookies_users,params=book_cancel_data)
+        print(res_read.text)
+        res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users)
+        print(res_vote.text)
+        count = count - 1   
+    #崩2板块
+    URL = 'https://api-community.mihoyo.com/community/forum/home/forumPostList?forum_id=30&is_good=false&is_hot=false&page_size=20&sort=create' 
+    #forum_id 1为崩3 26为原神 30为崩2
+    res = requests.get(URL, cookies=cookies_users)
+    res_text = json.loads(res.text)
+    URL_upvote = 'https://api-takumi.mihoyo.com/apihub/api/upvotePost'
+    URL_read = 'https://api-takumi.mihoyo.com/post/wapi/getPostFull?gids=1&post_id='
+    upvote_data = {'gids':'1',  'is_cancel':False,  'post_id':'1'}
+    book_URL='https://api-community.mihoyo.com/community/forum/post/assessPost'
+    book_data={'gids':'1',"post_id":"1","access":"book"}
+    book_cancel_data={'gids':'1',"post_id":"1","access":"book","cancel":"1"}
+    count = 11
+    while count > 0:
+        post_id = res_text['data']['list'][count]['post_id']
+        upvote_data['post_id'] = post_id
+        URL_read_id = URL_read + post_id
+        book_data['post_id']=res_text['data']['list'][count]['post_id']
+        book_cancel_data['post_id']=res_text['data']['list'][count]['post_id']
+        res_book = requests.get(URL_read_id, cookies=cookies_users)
+        print(res_book.text)
+        res_unbook = requests.get(book_URL, cookies=cookies_users,params=book_data)
+        print(res_unbook.text)
+        res_read = requests.get(book_URL, cookies=cookies_users,params=book_cancel_data)
+        print(res_read.text)
+        res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users)
+        print(res_vote.text)
+        count = count - 1 
+    
     #分享功能
     URL_share='https://api-takumi.mihoyo.com/apihub/api/getShareConf?entity_id='+ post_id + '&entity_type=1'
     res_share= requests.get(URL_share, cookies=cookies_users)
