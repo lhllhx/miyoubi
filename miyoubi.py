@@ -1,4 +1,4 @@
-import tkinter as tk, tkinter.messagebox, sys, requests, json
+import tkinter as tk, tkinter.messagebox, sys, requests, json,time
  
 def getcookies(): #获取用户登录信息
     window.withdraw()
@@ -33,6 +33,14 @@ def getcookies(): #获取用户登录信息
         tk.messagebox.showinfo("一键完成米游社米游币任务", '登录信息已失效，请重新登录')
         input_window()
     
+def reply(cookise,post_id):
+    #pass
+    URL="https://api-community.mihoyo.com/community/forum/reply/post"
+    data={"gids":"1","post_id":"1","content":"<p>_(笔心心)_(笔心心)_(笔心心)</p>","structured_content":[{"insert":"_(笔心心)_(笔心心)_(笔心心)\n"}]}
+    data["post_id"]=post_id
+    res=requests.post(URL,json=data,cookies=cookise)
+    print(res.text)
+    time.sleep(20)
  
 def send_data(cookies_users): #任务开始
     #全板块签到功能
@@ -76,6 +84,8 @@ def send_data(cookies_users): #任务开始
         print(res_read.text)
         res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users)
         print(res_vote.text)
+        if(count<4):
+            reply(cookies_users,post_id)
         count = count - 1
    
     #原神板块   
@@ -104,6 +114,8 @@ def send_data(cookies_users): #任务开始
         print(res_read.text)
         res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users)
         print(res_vote.text)
+        if(count<4):
+            reply(cookies_users,post_id)
         count = count - 1   
     #崩2板块
     URL = 'https://api-community.mihoyo.com/community/forum/home/forumPostList?forum_id=30&is_good=false&is_hot=false&page_size=20&sort=create' 
@@ -131,6 +143,8 @@ def send_data(cookies_users): #任务开始
         print(res_read.text)
         res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users)
         print(res_vote.text)
+        if(count<4):
+            reply(cookies_users,post_id)
         count = count - 1 
     
     #分享功能
