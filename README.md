@@ -13,6 +13,7 @@
 无提示版建议放在电脑计划任务里可以自动完成
 
 自动完成点赞收藏任务（请到branch查看）
+https://github.com/lhllhx/miyoubi/tree/Full_function
 
 ## 食用方法
 
