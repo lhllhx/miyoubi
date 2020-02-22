@@ -16,7 +16,7 @@
 
 ## 食用方法
 
-1，下载程序 https://share.weiyun.com/5xYDpa2 密码 weegy0 或到release（release为最新版）里下载 
+1 到release（release为最新版）里下载 
 
 并打开米游社官网https://bbs.mihoyo.com/bh3/
 
