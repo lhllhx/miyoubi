@@ -1,4 +1,6 @@
 import tkinter as tk, tkinter.messagebox, sys, requests, json
+
+
  
 def getcookies(): #获取用户登录信息
     window.withdraw()
@@ -35,6 +37,9 @@ def getcookies(): #获取用户登录信息
     
  
 def send_data(cookies_users): #任务开始
+    #定义header反爬虫
+    global header  
+    header={'Referer':'11'}
     #获取帖子信息
     URL = 'https://api-community.mihoyo.com/community/forum/home/forumPostList?forum_id=1&is_good=false&is_hot=false&page_size=20&sort=create'
     res = requests.get(URL, cookies=cookies_users)
@@ -42,9 +47,10 @@ def send_data(cookies_users): #任务开始
     post_id = res_text['data']['list'][0]['post_id']
     print(post_id)
     #签到功能
+    header['Referer']='https://bbs.mihoyo.com/bh3/'
     sign_data = {'gids': '1'}
     URL_signin = 'https://api-takumi.mihoyo.com/apihub/api/signIn'
-    res_signin = requests.post(URL_signin, json=sign_data, cookies=cookies_users)
+    res_signin = requests.post(URL_signin, json=sign_data, cookies=cookies_users,headers=header)
     print(res_signin.text)
     #点赞和阅贴
     URL_upvote = 'https://api-takumi.mihoyo.com/apihub/api/upvotePost'
@@ -54,20 +60,22 @@ def send_data(cookies_users): #任务开始
     while count > 0:
         upvote_data['post_id'] = post_id
         URL_read_id = URL_read + post_id
-        res_read = requests.get(URL_read_id, cookies=cookies_users)
+        header['Referer']='https://bbs.mihoyo.com/bh3/article/'+post_id
+        res_read = requests.get(URL_read_id, cookies=cookies_users,headers=header)
         print(res_read.text)
-        res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users)
+        res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users,headers=header)
         print(res_vote.text)
         post_id = str(int(post_id) - 1)
         count = count - 1
     #分享功能
     URL_share='https://api-takumi.mihoyo.com/apihub/api/getShareConf?entity_id='+ post_id + '&entity_type=1'
-    res_share= requests.get(URL_share, cookies=cookies_users)
+    header['Referer']='https://bbs.mihoyo.com/bh3/'
+    res_share= requests.get(URL_share, cookies=cookies_users,headers=header)
     print(res_share.text)
     global window
     window = tk.Tk()
     window.withdraw()
-    tk.messagebox.showinfo("恭喜", "任务已完成！")
+    tk.messagebox.showinfo("恭喜", "任务已完成！")   #需要无提示版请注释掉这一句
     sys.exit()
  
  

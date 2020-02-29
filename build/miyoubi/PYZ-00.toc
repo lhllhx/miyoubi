@@ -95,33 +95,9 @@
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\socket.py',
    'PYMODULE'),
-  ('bz2',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\bz2.py',
-   'PYMODULE'),
-  ('_compression',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\_compression.py',
-   'PYMODULE'),
-  ('quopri',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\quopri.py',
-   'PYMODULE'),
-  ('stringprep',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\stringprep.py',
-   'PYMODULE'),
   ('_py_abc',
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\_py_abc.py',
-   'PYMODULE'),
-  ('tokenize',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\tokenize.py',
-   'PYMODULE'),
-  ('token',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\token.py',
    'PYMODULE'),
   ('tracemalloc',
    'c:\\program files (x86)\\microsoft visual '
@@ -211,9 +187,17 @@
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\gzip.py',
    'PYMODULE'),
+  ('_compression',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\_compression.py',
+   'PYMODULE'),
   ('lzma',
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\lzma.py',
+   'PYMODULE'),
+  ('bz2',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\bz2.py',
    'PYMODULE'),
   ('email.message',
    'c:\\program files (x86)\\microsoft visual '
@@ -311,6 +295,10 @@
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\email\\feedparser.py',
    'PYMODULE'),
+  ('quopri',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\quopri.py',
+   'PYMODULE'),
   ('uu',
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\uu.py',
@@ -366,6 +354,14 @@
   ('urllib.parse',
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\urllib\\parse.py',
+   'PYMODULE'),
+  ('tokenize',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\tokenize.py',
+   'PYMODULE'),
+  ('token',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\token.py',
    'PYMODULE'),
   ('platform',
    'c:\\program files (x86)\\microsoft visual '
@@ -530,6 +526,10 @@
   ('fnmatch',
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\fnmatch.py',
+   'PYMODULE'),
+  ('stringprep',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\stringprep.py',
    'PYMODULE'),
   ('typing',
    'c:\\program files (x86)\\microsoft visual '
