@@ -3,7 +3,7 @@
 
 # 用前必看
 
-此程序**严禁**到**nga 贴吧 米游社**等**大型社交平台**大面积传播  
+此程序**严禁**分享到**nga 贴吧 米游社**等**大型社交平台**大面积传播  
 具体原因可以看一下更新日志
 
 
@@ -15,7 +15,8 @@
 
 理论上cookies有效期为一年但是只有米哈游才知道cookies有效期有多长  
 
-软件分为无提示版和有提示版，区别在软件完成任务时是否弹出已完成的提示框  
+软件分为~~无提示版~~(无提示版已不再提供 有需求的请自行下载编译)  
+和提示版，区别在软件完成任务时是否弹出已完成的提示框  
 无提示版建议放在电脑计划任务里可以自动完成
 
 自动完成点赞收藏任务（请到branch查看）
@@ -23,7 +24,7 @@ https://github.com/lhllhx/miyoubi/tree/Full_function
 
 ## 食用方法
 
-1，下载程序 https://share.weiyun.com/5xYDpa2 密码 weegy0 或到release（release为最新版）里下载 
+1，下载程序 https://share.weiyun.com/5uUxTTR 密码 zi5azw 或到release（release为最新版）里下载 
 
 并打开米游社官网https://bbs.mihoyo.com/bh3/
 
@@ -48,7 +49,7 @@ javascript:(function(){var a=function getCookie(name){var strCookie=document.coo
 #### 2020.2.29更新 
 做了部分防反爬虫处理 米游币模块应该能用了 全功能模块因为涉及代码较多 可能还需要点时间  
 
-等稳定下来（大概一周后）我会在这更新iOS捷径版
+等稳定下来（大概一周左右）我会在这更新iOS捷径版和全功能版
 
 #### 2020.2.28更新  
 nga内鬼是真的多 凌晨一点还在高强度执法 有关的程序的帖子全部被锁隐 无论是发布还是讨论 
