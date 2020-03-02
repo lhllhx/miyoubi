@@ -1,3 +1,7 @@
+# 本项目暂停维护并删除所有编译版本的下载
+不怕死的可以继续用
+![ban](https://github.com/lhllhx/miyoubi/blob/master/ban.png)
+
 # miyoubi
 这是一个一键完成米游社的米游币的python程序
 
@@ -15,17 +19,18 @@
 
 理论上cookies有效期为一年但是只有米哈游才知道cookies有效期有多长  
 
-软件分为~~无提示版~~(无提示版已不再提供 有需求的请自行下载编译)  
+~~软件分为无提示版(无提示版已不再提供 有需求的请自行下载编译)  
 和提示版，区别在软件完成任务时是否弹出已完成的提示框  
-无提示版建议放在电脑计划任务里可以自动完成
+无提示版建议放在电脑计划任务里可以自动完成~~
+本项目已不提供任何编译版本的下载
 
 自动完成点赞收藏任务（请到branch查看）
 https://github.com/lhllhx/miyoubi/tree/Full_function
 
 ## 食用方法
 
-1，下载程序 https://share.weiyun.com/5uUxTTR 密码 zi5azw 或到release（release为最新版）里下载 
-
+1，~~下载程序 https://share.weiyun.com/5uUxTTR 密码 zi5azw 或到release（release为最新版）里下载~~ 
+本项目已不提供任何编译版本的下载
 并打开米游社官网https://bbs.mihoyo.com/bh3/
 
 2，重新登录米游社（已登录的要退出重新登录）  
@@ -45,6 +50,9 @@ javascript:(function(){var a=function getCookie(name){var strCookie=document.coo
 注意：当你需要更改账号信息或初始化程序时，请删除同目录下的cookies.dat文件
 
 ## 更新日志
+
+#### 2020.3.2更新
+暂停维护
 
 #### 2020.2.29更新 
 做了部分防反爬虫处理 米游币模块应该能用了 全功能模块因为涉及代码较多 可能还需要点时间  
