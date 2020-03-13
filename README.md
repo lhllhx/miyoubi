@@ -1,6 +1,4 @@
-# 本项目暂停维护并删除所有编译版本的下载
-不怕死的可以继续用
-![ban](https://github.com/lhllhx/miyoubi/blob/master/ban.png)
+# 此版本暂停维护并删除所有编译版本的下载
 
 # miyoubi
 这是一个一键完成米游社的米游币的python程序
