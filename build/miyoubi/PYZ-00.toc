@@ -27,13 +27,29 @@
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\signal.py',
    'PYMODULE'),
-  ('_strptime',
+  ('ntpath',
    'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\_strptime.py',
+   'studio\\shared\\python37_64\\lib\\ntpath.py',
    'PYMODULE'),
-  ('datetime',
+  ('string',
    'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\datetime.py',
+   'studio\\shared\\python37_64\\lib\\string.py',
+   'PYMODULE'),
+  ('genericpath',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\genericpath.py',
+   'PYMODULE'),
+  ('posixpath',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\posixpath.py',
+   'PYMODULE'),
+  ('stat',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\stat.py',
+   'PYMODULE'),
+  ('ssl',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\ssl.py',
    'PYMODULE'),
   ('calendar',
    'c:\\program files (x86)\\microsoft visual '
@@ -59,29 +75,13 @@
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\struct.py',
    'PYMODULE'),
-  ('ntpath',
+  ('datetime',
    'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\ntpath.py',
+   'studio\\shared\\python37_64\\lib\\datetime.py',
    'PYMODULE'),
-  ('string',
+  ('_strptime',
    'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\string.py',
-   'PYMODULE'),
-  ('genericpath',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\genericpath.py',
-   'PYMODULE'),
-  ('posixpath',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\posixpath.py',
-   'PYMODULE'),
-  ('stat',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\stat.py',
-   'PYMODULE'),
-  ('ssl',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\ssl.py',
+   'studio\\shared\\python37_64\\lib\\_strptime.py',
    'PYMODULE'),
   ('base64',
    'c:\\program files (x86)\\microsoft visual '

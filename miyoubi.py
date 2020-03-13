@@ -41,27 +41,37 @@ def reply(cookise,post_id):  #回复板块
     data["post_id"]=post_id
     res=requests.post(URL,json=data,cookies=cookise)
     print(res.text)
-    time.sleep(20)
+    time.sleep(25)
 
 def releasePost(cookise):  #发帖模块
-    #pass
-    URL="https://api-takumi.mihoyo.com/post/wapi/releasePost"
-    data={"gids":"1","view_type":1,"structured_content":"[{\"insert\":\"鸭子被秒了几次 怎么办_(糖葫芦)\\n有没有其他阵容啊？\\n\"}]","subject":"红莲太难了","f_forum_id":1,"forum_id":1,"post_id":"","cover":"","content":"<p>鸭子被秒了几次 怎么办_(糖葫芦)</p><p>有没有其他阵容啊？</p>","topic_ids":["112"]}
-    res=requests.post(URL,json=data,cookies=cookise)
-    print(res.text)
-    time.sleep(1)
+    pass
+    #URL="https://api-takumi.mihoyo.com/post/wapi/releasePost"
+    #data={"gids":"1","view_type":1,"structured_content":"[{\"insert\":\"鸭子被秒了几次 怎么办_(糖葫芦)\\n有没有其他阵容啊？\\n\"}]","subject":"红莲太难了","f_forum_id":1,"forum_id":1,"post_id":"","cover":"","content":"<p>鸭子被秒了几次 怎么办_(糖葫芦)</p><p>有没有其他阵容啊？</p>","topic_ids":["112"]}
+    #res=requests.post(URL,json=data,cookies=cookise)
+    #print(res.text)
+    #time.sleep(1)
 
 def send_data(cookies_users): #任务开始
     #全板块签到功能
+    global header
+    header={'Referer':'11',
+            'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+            'Origin' : 'https://bbs.mihoyo.com'}
+    
+    header['Referer']='https://bbs.mihoyo.com/bh3/'
     sign_data = {'gids': '1'}
     URL_signin = 'https://api-takumi.mihoyo.com/apihub/api/signIn'
-    res_signin = requests.post(URL_signin, json=sign_data, cookies=cookies_users)
+    res_signin = requests.post(URL_signin, json=sign_data, cookies=cookies_users,headers=header)
+    
+    header['Referer']='https://bbs.mihoyo.com/ys/'
     sign_data = {'gids': '2'}
     URL_signin = 'https://api-takumi.mihoyo.com/apihub/api/signIn'
-    res_signin = requests.post(URL_signin, json=sign_data, cookies=cookies_users)
+    res_signin = requests.post(URL_signin, json=sign_data, cookies=cookies_users,headers=header)
+    
+    header['Referer']='https://bbs.mihoyo.com/bh2/'
     sign_data = {'gids': '3'}
     URL_signin = 'https://api-takumi.mihoyo.com/apihub/api/signIn'
-    res_signin = requests.post(URL_signin, json=sign_data, cookies=cookies_users)
+    res_signin = requests.post(URL_signin, json=sign_data, cookies=cookies_users,headers=header)
     print(res_signin.text)
     
     #点赞和阅贴和收藏功能
@@ -85,13 +95,14 @@ def send_data(cookies_users): #任务开始
         URL_read_id = URL_read + post_id
         book_data['post_id']=res_text['data']['list'][count]['post_id']
         book_cancel_data['post_id']=res_text['data']['list'][count]['post_id']
-        res_book = requests.get(URL_read_id, cookies=cookies_users)
+        header['Referer']='https://bbs.mihoyo.com/bh3/article/'+post_id
+        res_book = requests.get(URL_read_id, cookies=cookies_users,headers=header)
         print(res_book.text)
-        res_unbook = requests.get(book_URL, cookies=cookies_users,params=book_data)
+        res_unbook = requests.get(book_URL, cookies=cookies_users,params=book_data,headers=header)
         print(res_unbook.text)
-        res_read = requests.get(book_URL, cookies=cookies_users,params=book_cancel_data)
+        res_read = requests.get(book_URL, cookies=cookies_users,params=book_cancel_data,headers=header)
         print(res_read.text)
-        res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users)
+        res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users,headers=header)
         print(res_vote.text)
         if(count<4):
             reply(cookies_users,post_id)
@@ -115,13 +126,14 @@ def send_data(cookies_users): #任务开始
         URL_read_id = URL_read + post_id
         book_data['post_id']=res_text['data']['list'][count]['post_id']
         book_cancel_data['post_id']=res_text['data']['list'][count]['post_id']
-        res_book = requests.get(URL_read_id, cookies=cookies_users)
+        header['Referer']='https://bbs.mihoyo.com/ys/article/'+post_id
+        res_book = requests.get(URL_read_id, cookies=cookies_users,headers=header)
         print(res_book.text)
-        res_unbook = requests.get(book_URL, cookies=cookies_users,params=book_data)
+        res_unbook = requests.get(book_URL, cookies=cookies_users,params=book_data,headers=header)
         print(res_unbook.text)
-        res_read = requests.get(book_URL, cookies=cookies_users,params=book_cancel_data)
+        res_read = requests.get(book_URL, cookies=cookies_users,params=book_cancel_data,headers=header)
         print(res_read.text)
-        res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users)
+        res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users,headers=header)
         print(res_vote.text)
         if(count<4):
             reply(cookies_users,post_id)
@@ -145,21 +157,23 @@ def send_data(cookies_users): #任务开始
         URL_read_id = URL_read + post_id
         book_data['post_id']=res_text['data']['list'][count]['post_id']
         book_cancel_data['post_id']=res_text['data']['list'][count]['post_id']
-        res_book = requests.get(URL_read_id, cookies=cookies_users)
+        header['Referer']='https://bbs.mihoyo.com/bh2/article/'+post_id
+        res_book = requests.get(URL_read_id, cookies=cookies_users,headers=header)
         print(res_book.text)
-        res_unbook = requests.get(book_URL, cookies=cookies_users,params=book_data)
+        res_unbook = requests.get(book_URL, cookies=cookies_users,params=book_data,headers=header)
         print(res_unbook.text)
-        res_read = requests.get(book_URL, cookies=cookies_users,params=book_cancel_data)
+        res_read = requests.get(book_URL, cookies=cookies_users,params=book_cancel_data,headers=header)
         print(res_read.text)
-        res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users)
+        res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users,headers=header)
         print(res_vote.text)
         if(count<4):
             reply(cookies_users,post_id)
         count = count - 1 
     
     #分享功能
+    header['Referer']='https://bbs.mihoyo.com/bh2/article/'+post_id
     URL_share='https://api-takumi.mihoyo.com/apihub/api/getShareConf?entity_id='+ post_id + '&entity_type=1'
-    res_share= requests.get(URL_share, cookies=cookies_users)
+    res_share= requests.get(URL_share, cookies=cookies_users,headers=header)
     print(res_share.text)
     #window = tk.Tk()
     #window.withdraw()
@@ -185,7 +199,7 @@ def cookise_data(cookies_users): #检测用户信息
 def read_data(): #读取用户cookies
     try:
         cookies_f = open('cookies.dat', 'r')
-        cookies_users = {'ltuid':'a',  'ltoken':'a', 'stoken':"a" ,'stuid' :'a' }
+        cookies_users = {'ltuid':'a',  'ltoken':'a', 'stoken':'a' ,'stuid' :'a' }
         ltuid = cookies_f.readline()
         ltoken = cookies_f.readline()
         stoken = cookies_f.readline()
