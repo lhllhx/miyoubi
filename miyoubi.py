@@ -45,7 +45,8 @@ def reply(cookise,post_id):  #回复板块
 
 def releasePost(cookise):  #发帖模块
     URL="https://api-takumi.mihoyo.com/post/wapi/releasePost"
-    data={"gids":"1","view_type":1,"structured_content":"[{\"insert\":\"鸭子被秒了几次 怎么办_(糖葫芦)\\n有没有其他阵容啊？\\n\"}]","subject":"红莲太难了","f_forum_id":1,"forum_id":1,"post_id":"","cover":"","content":"<p>鸭子被秒了几次 怎么办_(糖葫芦)</p><p>有没有其他阵容啊？</p>","topic_ids":["112"]}
+    data={"gids":"1","view_type":1,"structured_content":"[{\"insert\":\"_(笔心心)求赞求回复 一起来升级吧_(笔心心)\\n\"}]","subject":"求赞求回复 一起来升级吧","f_forum_id":0,"forum_id":0,"post_id":"","cover":"","content":"<p>_(笔心心)求赞求回复 一起来升级吧_(笔心心)</p>","topic_ids":["110"]}
+    header['Referer']='https://bbs.mihoyo.com/bh3/newArticle/0/1/110'
     res=requests.post(URL,json=data,cookies=cookise,headers=header)
     print(res.text)
     time.sleep(1)
