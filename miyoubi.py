@@ -39,17 +39,16 @@ def reply(cookise,post_id):  #回复板块
     URL="https://api-community.mihoyo.com/community/forum/reply/post"
     data={"gids":"1","post_id":"1","content":"<p>求赞求回复_(笔心心)_(笔心心)_(笔心心)</p>","structured_content":[{"insert":"求赞求回复_(笔心心)_(笔心心)_(笔心心)\n"}]}
     data["post_id"]=post_id
-    res=requests.post(URL,json=data,cookies=cookise)
+    res=requests.post(URL,json=data,cookies=cookise,headers=header)
     print(res.text)
     time.sleep(25)
 
 def releasePost(cookise):  #发帖模块
-    pass
-    #URL="https://api-takumi.mihoyo.com/post/wapi/releasePost"
-    #data={"gids":"1","view_type":1,"structured_content":"[{\"insert\":\"鸭子被秒了几次 怎么办_(糖葫芦)\\n有没有其他阵容啊？\\n\"}]","subject":"红莲太难了","f_forum_id":1,"forum_id":1,"post_id":"","cover":"","content":"<p>鸭子被秒了几次 怎么办_(糖葫芦)</p><p>有没有其他阵容啊？</p>","topic_ids":["112"]}
-    #res=requests.post(URL,json=data,cookies=cookise)
-    #print(res.text)
-    #time.sleep(1)
+    URL="https://api-takumi.mihoyo.com/post/wapi/releasePost"
+    data={"gids":"1","view_type":1,"structured_content":"[{\"insert\":\"鸭子被秒了几次 怎么办_(糖葫芦)\\n有没有其他阵容啊？\\n\"}]","subject":"红莲太难了","f_forum_id":1,"forum_id":1,"post_id":"","cover":"","content":"<p>鸭子被秒了几次 怎么办_(糖葫芦)</p><p>有没有其他阵容啊？</p>","topic_ids":["112"]}
+    res=requests.post(URL,json=data,cookies=cookise,headers=header)
+    print(res.text)
+    time.sleep(1)
 
 def send_data(cookies_users): #任务开始
     #全板块签到功能
@@ -172,6 +171,9 @@ def send_data(cookies_users): #任务开始
     
     #分享功能
     header['Referer']='https://bbs.mihoyo.com/bh2/article/'+post_id
+    header['x-rpc-client_type']='1'
+    header['x-rpc-app_version']='1.6.0'
+    del dict['User-Agent']
     URL_share='https://api-takumi.mihoyo.com/apihub/api/getShareConf?entity_id='+ post_id + '&entity_type=1'
     res_share= requests.get(URL_share, cookies=cookies_users,headers=header)
     print(res_share.text)
