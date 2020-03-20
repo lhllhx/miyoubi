@@ -95,6 +95,14 @@
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\socket.py',
    'PYMODULE'),
+  ('tokenize',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\tokenize.py',
+   'PYMODULE'),
+  ('token',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\token.py',
+   'PYMODULE'),
   ('tracemalloc',
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\tracemalloc.py',
@@ -351,14 +359,6 @@
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\urllib\\parse.py',
    'PYMODULE'),
-  ('tokenize',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\tokenize.py',
-   'PYMODULE'),
-  ('token',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\token.py',
-   'PYMODULE'),
   ('platform',
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\platform.py',
@@ -523,6 +523,10 @@
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\fnmatch.py',
    'PYMODULE'),
+  ('typing',
+   'c:\\program files (x86)\\microsoft visual '
+   'studio\\shared\\python37_64\\lib\\typing.py',
+   'PYMODULE'),
   ('_py_abc',
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\_py_abc.py',
@@ -530,10 +534,6 @@
   ('stringprep',
    'c:\\program files (x86)\\microsoft visual '
    'studio\\shared\\python37_64\\lib\\stringprep.py',
-   'PYMODULE'),
-  ('typing',
-   'c:\\program files (x86)\\microsoft visual '
-   'studio\\shared\\python37_64\\lib\\typing.py',
    'PYMODULE'),
   ('json',
    'c:\\program files (x86)\\microsoft visual '

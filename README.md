@@ -10,7 +10,7 @@
 
 自动完成全板块点赞收藏回帖任务！
 
-~~自动发帖~~（未实装） 
+自动发帖（已实装至崩坏3水区 现仅提供崩坏3水区发帖模块） 
 
 # 用前必看
 
@@ -37,7 +37,7 @@
 
 ## 食用方法
 
-1 到release里下载 编译版本请到目录里dist文件夹里下下载
+1 到下载miyoubi.py 编译版本请到目录里dist文件夹里下下载
 
 并打开米游社官网https://bbs.mihoyo.com/bh3/
 
@@ -51,7 +51,7 @@ javascript:(function(){var a=function getCookie(name){var strCookie=document.coo
 
 ![b](https://github.com/lhllhx/miyoubi/blob/master/b.png)
 
-5，输入到程序里面 等待约3秒
+5，输入到程序里面 等待数分钟
 
 6，完成！（有提示版本会弹出成功提示）  
 
@@ -66,7 +66,11 @@ javascript:(function(){var a=function getCookie(name){var strCookie=document.coo
 源文件为miyoubi.py 其他为编译副产物
 
 ## 更新日记
-2020.3.18
+2020.3.21  
+修复分享模块功能 更新反爬虫处理  
+实装发帖模块
+
+2020.3.18  
 更新反爬虫处理  
 更新发帖模块（未实装）
 

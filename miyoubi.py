@@ -49,15 +49,18 @@ def releasePost(cookise):  #发帖模块
     header['Referer']='https://bbs.mihoyo.com/bh3/newArticle/0/1/110'
     res=requests.post(URL,json=data,cookies=cookise,headers=header)
     print(res.text)
-    time.sleep(1)
+    time.sleep(10)
 
 def send_data(cookies_users): #任务开始
-    #全板块签到功能
     global header
     header={'Referer':'11',
             'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
             'Origin' : 'https://bbs.mihoyo.com'}
-    
+   
+    #发贴模块
+    releasePost(cookies_users)
+   
+    #全板块签到功能    
     header['Referer']='https://bbs.mihoyo.com/bh3/'
     sign_data = {'gids': '1'}
     URL_signin = 'https://api-takumi.mihoyo.com/apihub/api/signIn'
@@ -171,14 +174,24 @@ def send_data(cookies_users): #任务开始
         count = count - 1 
     
     #分享功能
-    header['Referer']='https://bbs.mihoyo.com/bh2/article/'+post_id
-    header['x-rpc-client_type']='1'
+    header['Referer']='https://app.mihoyo.com'
+    header['x-rpc-client_type']='2'
     header['x-rpc-app_version']='1.6.0'
-    del dict['User-Agent']
-    URL_share='https://api-takumi.mihoyo.com/apihub/api/getShareConf?entity_id='+ post_id + '&entity_type=1'
+    header['x-rpc-sys_version']='6.0.1'
+    header['x-rpc-channel']='xiaomi'
+    header['x-rpc-device_id']='fc5235c6-c40d-33a6-a3e6-64e97b6e9c03'
+    header['x-rpc-device_name']='OPPO oppo R11s Plus'
+    header['x-rpc-device_model']='oppo R11s Plus'
+    header['Accept-Encoding']='gzip'
+    header['User-Agent']='okhttp/3.10.0'
+    del cookies_users['ltuid']
+    del cookies_users['ltoken']
+    URL_share='https://api-takumi.mihoyo.com/apihub/api/getShareConf?'+'entity_type=1'+'&entity_id='+ post_id 
     res_share= requests.get(URL_share, cookies=cookies_users,headers=header)
     print(res_share.text)
-    #window = tk.Tk()
+
+    #需要提示请取消注销以下三行
+    #window = tk.Tk()                                       
     #window.withdraw()
     #tk.messagebox.showinfo("恭喜", "任务已完成！")
     sys.exit()
