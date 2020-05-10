@@ -35,7 +35,7 @@ def getcookies(): #获取用户登录信息
     
 
 def reply(cookise,post_id):  #回复板块
-    #pass
+    return
     URL="https://api-community.mihoyo.com/community/forum/reply/post"
     data={"gids":"1","post_id":"1","content":"<p>求赞求回复_(笔心心)_(笔心心)_(笔心心)</p>","structured_content":[{"insert":"求赞求回复_(笔心心)_(笔心心)_(笔心心)\n"}]}
     data["post_id"]=post_id
@@ -58,7 +58,7 @@ def send_data(cookies_users): #任务开始
             'Origin' : 'https://bbs.mihoyo.com'}
    
     #发贴模块
-    releasePost(cookies_users)
+    #releasePost(cookies_users)
    
     #全板块签到功能    
     header['Referer']='https://bbs.mihoyo.com/bh3/'
@@ -83,8 +83,8 @@ def send_data(cookies_users): #任务开始
     #获取帖子信息
     URL = 'https://api-community.mihoyo.com/community/forum/home/forumPostList?forum_id=1&is_good=false&is_hot=false&page_size=20&sort=create' 
     #forum_id 1为崩3 26为原神 30为崩2
-    res = requests.get(URL, cookies=cookies_users)
-    res_text = json.loads(res.text)
+    res_bh3 = requests.get(URL, cookies=cookies_users)
+    res_text_bh3 = json.loads(res_bh3.text)
     URL_upvote = 'https://api-takumi.mihoyo.com/apihub/api/upvotePost'
     URL_read = 'https://api-takumi.mihoyo.com/post/wapi/getPostFull?gids=1&post_id='
     upvote_data = {'gids':'1',  'is_cancel':False,  'post_id':'1'}
@@ -92,12 +92,13 @@ def send_data(cookies_users): #任务开始
     book_data={'gids':'1',"post_id":"1","access":"book"}
     book_cancel_data={'gids':'1',"post_id":"1","access":"book","cancel":"1"}
     count = 11
+    
     while count > 0:
-        post_id = res_text['data']['list'][count]['post_id']
+        post_id = res_text_bh3['data']['list'][count]['post_id']
         upvote_data['post_id'] = post_id
         URL_read_id = URL_read + post_id
-        book_data['post_id']=res_text['data']['list'][count]['post_id']
-        book_cancel_data['post_id']=res_text['data']['list'][count]['post_id']
+        book_data['post_id']=res_text_bh3['data']['list'][count]['post_id']
+        book_cancel_data['post_id']=res_text_bh3['data']['list'][count]['post_id']
         header['Referer']='https://bbs.mihoyo.com/bh3/article/'+post_id
         res_book = requests.get(URL_read_id, cookies=cookies_users,headers=header)
         print(res_book.text)
@@ -105,8 +106,8 @@ def send_data(cookies_users): #任务开始
         print(res_unbook.text)
         res_read = requests.get(book_URL, cookies=cookies_users,params=book_cancel_data,headers=header)
         print(res_read.text)
-        res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users,headers=header)
-        print(res_vote.text)
+        #res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users,headers=header)
+        #print(res_vote.text)
         if(count<4):
             reply(cookies_users,post_id)
         count = count - 1
@@ -174,6 +175,7 @@ def send_data(cookies_users): #任务开始
         count = count - 1 
     
     #分享功能
+    post_id = res_text_bh3['data']['list'][count]['post_id']
     header['Referer']='https://app.mihoyo.com'
     header['x-rpc-client_type']='2'
     header['x-rpc-app_version']='1.6.0'
@@ -189,6 +191,23 @@ def send_data(cookies_users): #任务开始
     URL_share='https://api-takumi.mihoyo.com/apihub/api/getShareConf?'+'entity_type=1'+'&entity_id='+ post_id 
     res_share= requests.get(URL_share, cookies=cookies_users,headers=header)
     print(res_share.text)
+    
+    #米游币点赞看贴模块
+    count = 11
+    del upvote_data['gids']
+    header['Referer']='https://bbs.mihoyo.com'
+    URL_upvote = 'https://api-takumi.mihoyo.com/apihub/sapi/upvotePost'
+    URL_read = 'https://api-takumi.mihoyo.com/post/api/getPostFull?post_id='
+    while count > 0:
+        post_id = res_text_bh3['data']['list'][count]['post_id']
+        upvote_data['post_id'] = post_id
+        URL_read = 'https://api-takumi.mihoyo.com/post/api/getPostFull?post_id='+ post_id       
+        res_read = requests.get(URL_read, cookies=cookies_users,headers=header)
+        print(res_read.text)
+        time.sleep(0.5)
+        res_vote = requests.post(URL_upvote, json=upvote_data, cookies=cookies_users,headers=header)
+        print(res_vote.text)
+        count = count - 1
 
     #需要提示请取消注销以下三行
     #window = tk.Tk()                                       
